@@ -8,9 +8,8 @@ export const PredictorPage = () => {
     const { register, formState:{errors}, handleSubmit } = useForm();
     const { validatePicoPlaca } = validations();
 
-    const onSubmit = (data, e) => {
+    const onSubmit = (data) => {
         validatePicoPlaca(data);
-        e.target.reset()
     }
 
   return (

@@ -1,4 +1,5 @@
 import Swal from "sweetalert2";
+import  image002 from '../assets/images/image002.png'
 
 export const validations = () => {
 
@@ -30,17 +31,17 @@ export const validations = () => {
         if(aplica && !puedeCircular){
             Swal.fire({
                 icon: 'error',
-                title: "No puede circular debido a la restricción de Pico y Placa.",
-                text: 'Horario de lunes a Viernes: 7:00 a.m. - 9:30 a.m / 4:00 p.m - 21:00 p.m / Fines de semana no aplica',
-                //imageUrl: './assets/images/image002.png'
+                title: "You cannot circulate with the vehicle due to the restriction of Pico and Placa.",
+                text: 'Schedule from monday to friday: 7:00 a.m. - 9:30 a.m / 4:00 p.m - 19:30 p.m',
+                imageUrl: image002
             })
             
         }else{
             Swal.fire({
                 icon: 'success',
-                title: "Puede circular sin restricciones.",
-                text: 'Horario de lunes a Viernes: 7:00 a.m. - 9:30 a.m / 4:00 p.m - 21:00 p.m / Fines de semana no aplica',
-                //imageUrl: './assets/images/image002.png'
+                title: "You can circulate without restrictions.",
+                text: 'Schedule from monday to friday: 7:00 a.m. - 9:30 a.m / 4:00 p.m - 19:30 p.m',
+                imageUrl: image002
             })
             
         }
