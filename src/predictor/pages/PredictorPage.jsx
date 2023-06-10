@@ -1,3 +1,4 @@
+import { validations } from "../../hooks/validations";
 import { Navbar } from "../components/Navbar"
 
 import { useForm } from "react-hook-form";
@@ -5,9 +6,11 @@ import { useForm } from "react-hook-form";
 export const PredictorPage = () => {
 
     const { register, formState:{errors}, handleSubmit } = useForm();
+    const { validatePicoPlaca } = validations();
 
-    const onSubmit = (data) => {
-        console.log(data);
+    const onSubmit = (data, e) => {
+        validatePicoPlaca(data);
+        e.target.reset()
     }
 
   return (
@@ -32,16 +35,21 @@ export const PredictorPage = () => {
                 <input
                     type="date"
                     className="form-control my-2"
-                    {...register("fecha")}
+                    {...register("fecha", {
+                        required: true
+                    })}
                 />
-
+                {errors.placa?.type === 'required' && <p className=" text-danger small">Date is required</p>}
                 
                 <label className="form-label mt-2">Time</label>
                 <input
                     type="time"
                     className="form-control my-2"
-                    {...register("hora")}
+                    {...register("hora", {
+                        required: true
+                    })}
                 />
+                {errors.placa?.type === 'required' && <p className=" text-danger small">Time is required</p>}
 
                 <button type="submit" className="btn btn-primary">Send</button>
             </form>
